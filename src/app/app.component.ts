@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from './user';
+import { HttpService } from './http.service';
 
 @Component({
   selector: 'app-root',
@@ -17,5 +18,13 @@ export class AppComponent {
     console.log(this.users);
     this.user = new User();
     this.submitted = true;
+  }
+
+  tasks = [];
+  constructor(private _httpService: HttpService){}
+  getTasks(){
+    this._httpService.retrieveTasks()
+    .then( tasks => { this.tasks = tasks })
+    .catch( err => { console.log(err); })
   }
 }
