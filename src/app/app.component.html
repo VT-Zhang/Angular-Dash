@@ -2,44 +2,25 @@
 <div style="text-align:center">
   <h1>
     Welcome to {{title}}!!
-  </h1>
-    <input type='text' value='{{x}}'>
-    <input type='text' [value]='x'>
-  {{num | currency:'USD':true}}
-  {{user|json}}
-  {{today|date:'shortDate'}}
-  <p>{{number}}</p>
-  <p>{{name}}</p>
-  <p>{{user.first_name}} {{user.last_name}}</p>
-  <p>{{x + 12}}</p>
-  <p *ngIf='boo'>Show this</p>
-  <p *ngIf='!boo'>Don't Show this</p>
-  <ul>
-    <li *ngFor="let num of arr">{{num}}</li>
-  </ul>
-  <p>testing</p>
-  <button (click)='logNum()'>Print the num value</button>
-  <button (click)='num = num + 1'>Increase the num</button>
-
-  <form (submit)='onSubmit()'>
-    <input type='text' name='email' [(ngModel)]='user1.email'>
-    <input type='text' name='lastName' [(ngModel)]='user1.lastName'>
-    <input type='submit'>
-  </form>
-  {{user1 | json}}
-
-  
+  </h1> 
   <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=" />
 
-<input 
-  type="text" 
-  name="email"
-  required 
-  minlength="4" 
-  maxlength="6"
-  [(ngModel)]="user.email"
-  #email="ngModel"
->
+<hr>
+<h1>Registration</h1>
+<h4 style='color:green' *ngIf='submitted'>Thank you for registering with us {{user.first_name}}. We just sent you an email confirmation to {{user.email}}, and 
+    we will send all mail to {{user.street}}, {{user.city}}, {{user.state}}. Have a wonderful day.
+</h4>
+<form (submit)='register()'>
+    <p>First Name: <input type='text' name='first_name' required [(ngModel)]='user.first_name' #first_name='ngModel'></p>
+    <p>Last Name: <input type='text' name='last_name' required [(ngModel)]='user.last_name' #last_name='ngModel'></p>
+    <p>Email: <input type='text' name='email' required minlength="4" maxlength="24" [(ngModel)]='user.email' #email='ngModel'></p>
+    <p>Password: <input type='password' name='password' required minlength='8' maxlength='64' pattern="^([a-zA-Z0-9@*#]{8,15})$" [(ngModel)]='user.password' #password='ngModel'></p>
+    <p>PW Confirmation: <input type='password' name='confirmation' required minlength='8' maxlength='64' pattern="^([a-zA-Z0-9@*#]{8,15})$" [(ngModel)]='user.password' #password='ngModel'></p>
+    <p>Street: <input type='text' name='street' required [(ngModel)]='user.street' #street='ngModel'></p>
+    <p>City: <input type='text' name='city' required [(ngModel)]='user.city' #city='ngModel'></p>
+    <p>State: <input type='text' name='state' required [(ngModel)]='user.state' #state='ngModel'></p>
+    <p><input type='submit'></p>
+</form>
 
-{{ email.errors | json }}
-{{ email.valid | json }}
+
+{{user|json}}
