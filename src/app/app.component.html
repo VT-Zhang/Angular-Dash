@@ -22,8 +22,9 @@
     <p><input type='submit'></p>
 </form>
 
+<p><a [routerLink]="['/abc']">Task</a> | <a [routerLink]="['/posts']">Post</a></p>
 
 {{user|json}}
 <hr>
-Below is from the task components
-<app-task></app-task>
+<router-outlet></router-outlet>
+<!--<app-task></app-task>-->
