@@ -140,20 +140,21 @@
 
        /* ---------- Map ---------- */
         $(function(){
-        $('#map').vectorMap({
-            map: 'us_aea',
-            series: {
-            regions: [{
-                values: gdpData,
-                scale: ['#000', '#000'],
-                normalizeFunction: 'polynomial'
-            }]
-            },
-            backgroundColor: '#eef3f7',
-            onLabelShow: function(e, el, code){
-            el.html(el.html()+' (GDP - '+gdpData[code]+')');
-            }
-        });
+            $('#map').vectorMap({
+                map: 'us_aea',
+                series: {
+                regions: [{
+                    values: gdpData,
+                    scale: ['#000', '#000'],
+                    normalizeFunction: 'polynomial'
+                }]
+                },
+                backgroundColor: '#eef3f7',
+                onLabelShow: function(e, el, code){
+                el.html(el.html()+' (GDP - '+gdpData[code]+')');
+                }
+            });
+       });
 	 
 
     // bootstrap select live search
