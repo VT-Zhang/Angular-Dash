@@ -5,7 +5,7 @@ import { PostComponent } from './post/post.component'; // <-
 
 
 const routes: Routes = [
-    {path:'abc', component: TaskComponent},
+    {path:'tasks', component: TaskComponent},
     {path:'posts', component: PostComponent},
 ];
 
