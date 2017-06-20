@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TaskComponent } from './task/task.component';
-import { PostComponent } from './post/post.component'; // <-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ClientProfileComponent } from './client_profile/client_profile.component'; // <-
 
 
 const routes: Routes = [
-    {path:'tasks', component: TaskComponent},
-    {path:'posts', component: PostComponent},
+    {path:'dashboard', component: DashboardComponent},
+    {path:'client/profile', component: ClientProfileComponent},
 ];
 
 @NgModule({
