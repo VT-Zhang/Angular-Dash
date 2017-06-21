@@ -9,14 +9,16 @@ import { DataService } from './data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
-import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component'; // <-
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { PatientProfileComponent } from './patient-profile/patient-profile.component'; // <-
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     ClientProfileComponent,
-    DoctorProfileComponent
+    DoctorProfileComponent,
+    PatientProfileComponent
   ],
   imports: [
     BrowserModule,

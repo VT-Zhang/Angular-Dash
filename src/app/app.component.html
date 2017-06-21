@@ -247,7 +247,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="assets/img/avatar1_small.jpg">
                             </span>
-                            <span class="username">Crystal Icenhouse</span>
+                            <span class="username">Crystal Icenhour</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -342,7 +342,7 @@
                       <ul class="sub">
                           <li><a class="" [routerLink]="['/client', 'profile']">Client Profile</a></li>
                           <li><a class="" [routerLink]="['/doctor', 'profile']">Doctor Profile</a></li>
-                          <li><a class="" href="/profiles/patient_profile">Patient Profile</a></li>
+                          <li><a class="" [routerLink]="['/patient', 'profile']">Patient Profile</a></li>
                       </ul>
                   </li>
                   <!-- Reports -->
@@ -383,6 +383,28 @@
     <script src="assets/js/jquery.dataTables.min.js"></script>
     <script src="assets/js/dataTables.bootstrap.min.js"></script>
     <script>
+        //DataTable Initialization and options
+          $('#client_profile').DataTable({
+              "pageLength": 25
+          });
+          $('#doctor_profile').DataTable({
+              "pageLength": 25
+          });
+          $('#patient_profile').DataTable({
+              "pageLength": 25
+          });
+          $('#requisition').DataTable({
+              "pageLength": 25
+          });
+          $('#sample').DataTable({
+              "pageLength": 25
+          });
+          $('#vial').DataTable({
+              "pageLength": 25
+          });
+          $('#sample_batch').DataTable({
+              "pageLength": 25
+          });
          /* ---------- Map ---------- */
         $(function(){
         $('#map').vectorMap({

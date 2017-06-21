@@ -16,7 +16,8 @@ export class ClientProfileComponent implements OnInit {
   public url1 = 'https://crm.zoho.com/crm/private/json/Accounts/getRecords?authtoken=1c6859a3bbc0b776b49d71c4f68d87f8&scope=crmapi&callback=JSONP_CALLBACK';
   public url2 = "https://jobs.github.com/positions.json?description=python&location=new+york&callback=JSONP_CALLBACK";
   public url3 = "http://api.worldbank.org/countries/us/indicators/SH.XPD.PRIV.ZS?date=2000:2002&format=jsonP&prefix=JSONP_CALLBACK";
-  
+  public url4 = "http://161.253.178.165:8080/api/posts&callback=JSONP_CALLBACK";
+
   constructor(private httpService: HttpService,
               private dataService: DataService) { 
   }
@@ -37,6 +38,12 @@ export class ClientProfileComponent implements OnInit {
       data => this.data = data,
       error => this.errorMessage = error,
     );
+  }
+
+  loadHttp(){
+    this.httpService
+    .getData()
+    .subscribe(data => this.data = data)
   }
 
   clients = [
