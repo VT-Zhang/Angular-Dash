@@ -4,9 +4,9 @@ import { DataService } from '../data.service';
 import { Http, Response, Headers } from '@angular/http';
 
 @Component({
-  selector: 'app-client_profile',
-  templateUrl: './client_profile.component.html',
-  styleUrls: ['./client_profile.component.css']
+  selector: 'app-client-profile',
+  templateUrl: './client-profile.component.html',
+  styleUrls: ['./client-profile.component.css']
 })
 
 export class ClientProfileComponent implements OnInit {
@@ -32,14 +32,12 @@ export class ClientProfileComponent implements OnInit {
     // this.HttpService
     // .getClient()
     this.dataService
-    .getData(this.url1)
+    .getData(this.url2)
     .subscribe(
       data => this.data = data,
       error => this.errorMessage = error,
     );
   }
-
-
 
   clients = [
     {

@@ -1,0 +1,55 @@
+<section id="main-content">
+    <section class="wrapper">
+    <div class="row">
+          <div class="col-lg-12">
+              <h3 class="page-header"><i class="fa fa-file-pdf-o"></i>Doctor Profile</h3>
+              <ol class="breadcrumb">
+                  <li><i class="fa fa-home"></i><a href="/dashboard">Home</a></li>
+                  <li><i class="icon_profile"></i>Profile</li>
+                  <li><i class="fa fa-table"></i>Doctor Profile</li>
+              </ol>
+          </div>
+      </div>
+
+      <table id="doctor_profile" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Specialty</th>
+                <th>Phone</th>
+                <th>Fax</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let doctor of doctors">
+                <td>{{doctor.last_name}}, {{doctor.first_name}}</td>
+                <td>{{doctor.department}}</td>
+                <td>{{doctor.specialty}}</td>
+                <td>{{doctor.phone}}</td>
+                <td>{{doctor.fax}}</td>
+                <td>{{doctor.email}}</td>
+                <td>{{doctor.street}}, {{doctor.city}}, {{doctor.state}}, {{doctor.zipcode}}</td>
+                <td style="text-align:center;"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="">
+                  Edit
+                </button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    </section>
+</section>
+
+<script src="assets/js/jquery.dataTables.min.js"></script>
+<script src="assets/js/dataTables.bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+          //DataTable Initialization and options
+          $('#doctor_profile').DataTable({
+              "pageLength": 25
+          });
+      });
+</script>

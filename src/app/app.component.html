@@ -18,16 +18,7 @@
                         <form class="navbar-form">
                             <input class="form-control" placeholder="Search" type="text">
                         </form>
-                    </li>
-                    <!--<li>
-                        {% if messages %}
-                        <ul class="messages">
-                            {% for message in messages %}
-                            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                        {% endif %}
-                    </li>-->
+                    </li>         
                 </ul>
                 <!--  search form end -->
             </div>
@@ -350,7 +341,7 @@
                       </a>
                       <ul class="sub">
                           <li><a class="" [routerLink]="['/client', 'profile']">Client Profile</a></li>
-                          <li><a class="" href="/profiles/doctor_profile">Doctor Profile</a></li>
+                          <li><a class="" [routerLink]="['/doctor', 'profile']">Doctor Profile</a></li>
                           <li><a class="" href="/profiles/patient_profile">Patient Profile</a></li>
                       </ul>
                   </li>

@@ -8,13 +8,15 @@ import { HttpService } from './http.service';
 import { DataService } from './data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ClientProfileComponent } from './client_profile/client_profile.component'; // <-
+import { ClientProfileComponent } from './client-profile/client-profile.component';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component'; // <-
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ClientProfileComponent
+    ClientProfileComponent,
+    DoctorProfileComponent
   ],
   imports: [
     BrowserModule,
