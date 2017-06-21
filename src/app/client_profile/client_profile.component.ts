@@ -11,8 +11,15 @@ import { Http, Response, Headers } from '@angular/http';
 
 export class ClientProfileComponent implements OnInit {
 
-  constructor(private HttpService: HttpService,
-              private DataService: DataService) { }
+  public data: any;
+  private errorMessage : any;
+  public url1 = 'https://crm.zoho.com/crm/private/json/Accounts/getRecords?authtoken=1c6859a3bbc0b776b49d71c4f68d87f8&scope=crmapi&callback=JSONP_CALLBACK';
+  public url2 = "https://jobs.github.com/positions.json?description=python&location=new+york&callback=JSONP_CALLBACK";
+  public url3 = "http://api.worldbank.org/countries/us/indicators/SH.XPD.PRIV.ZS?date=2000:2002&format=jsonP&prefix=JSONP_CALLBACK";
+  
+  constructor(private httpService: HttpService,
+              private dataService: DataService) { 
+  }
                
                
   ngOnInit() {
@@ -21,19 +28,18 @@ export class ClientProfileComponent implements OnInit {
     headers.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   }
 
-  result = {};
-
-  loadClient(){
+  loadData(){
     // this.HttpService
     // .getClient()
-    this.DataService
-    .getData()
-    .subscribe(result => this.result = result);
+    this.dataService
+    .getData(this.url1)
+    .subscribe(
+      data => this.data = data,
+      error => this.errorMessage = error,
+    );
   }
 
 
-
- 
 
   clients = [
     {
