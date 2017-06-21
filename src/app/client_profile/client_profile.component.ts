@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
-import {Http, Response} from '@angular/http';
+import { DataService } from '../data.service';
+import { Http, Response, Headers } from '@angular/http';
 
 @Component({
   selector: 'app-client_profile',
@@ -11,19 +12,28 @@ import {Http, Response} from '@angular/http';
 export class ClientProfileComponent implements OnInit {
 
   constructor(private HttpService: HttpService,
-              private http: Http) { }
+              private DataService: DataService) { }
+               
+               
+  ngOnInit() {
+    let headers = new Headers();
+    headers.append('Access-Control-Allow-Origin:', '*');
+    headers.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  }
 
   result = {};
 
   loadClient(){
-    this.http.get('https://crm.zoho.com/crm/private/json/Accounts/getRecords?authtoken=1c6859a3bbc0b776b49d71c4f68d87f8&scope=crmapi')
-    .map(response => response.json())
+    // this.HttpService
+    // .getClient()
+    this.DataService
+    .getData()
     .subscribe(result => this.result = result);
   }
 
 
-  ngOnInit() {
-  }
+
+ 
 
   clients = [
     {

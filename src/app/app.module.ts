@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { JsonpModule } from '@angular/http';
 import { HttpService } from './http.service';
+import { DataService } from './data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientProfileComponent } from './client_profile/client_profile.component'; // <-
@@ -19,10 +21,14 @@ import { ClientProfileComponent } from './client_profile/client_profile.componen
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    JsonpModule,
   ],
   providers: [
-    HttpService
+    HttpService,
+    DataService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }
