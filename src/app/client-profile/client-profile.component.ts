@@ -25,13 +25,11 @@ export class ClientProfileComponent implements OnInit {
                
   ngOnInit() {
     this.httpService
-    .getData()
+    .getZohoID()
     .subscribe(data => this.data = data)
   }
 
   loadData(){
-    // this.HttpService
-    // .getClient()
     this.dataService
     .getData(this.url3)
     .subscribe(
@@ -42,7 +40,7 @@ export class ClientProfileComponent implements OnInit {
 
   loadHttp(){
     this.httpService
-    .getData()
+    .getZohoID()
     .subscribe(data => this.data = data)
   }
 

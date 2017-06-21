@@ -11,7 +11,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { PatientProfileComponent } from './patient-profile/patient-profile.component';
-import { NewPatientComponent } from './new-patient/new-patient.component'; // <-
+import { PatientNewComponent } from './patient-new/patient-new.component';
+import { ClientNewComponent } from './client-new/client-new.component'; // <-
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NewPatientComponent } from './new-patient/new-patient.component'; // <-
     ClientProfileComponent,
     DoctorProfileComponent,
     PatientProfileComponent,
-    NewPatientComponent
+    PatientNewComponent,
+    ClientNewComponent
   ],
   imports: [
     BrowserModule,

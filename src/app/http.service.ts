@@ -9,7 +9,7 @@ export class HttpService {
   
   private url = "http://127.0.0.1:8000/api/zohocrm";
 
-  getData() {
+  getZohoID() {
     return this.http
     .get(this.url)
     .map(res => res.json());
