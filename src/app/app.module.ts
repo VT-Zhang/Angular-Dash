@@ -10,7 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
-import { PatientProfileComponent } from './patient-profile/patient-profile.component'; // <-
+import { PatientProfileComponent } from './patient-profile/patient-profile.component';
+import { NewPatientComponent } from './new-patient/new-patient.component'; // <-
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PatientProfileComponent } from './patient-profile/patient-profile.compo
     DashboardComponent,
     ClientProfileComponent,
     DoctorProfileComponent,
-    PatientProfileComponent
+    PatientProfileComponent,
+    NewPatientComponent
   ],
   imports: [
     BrowserModule,

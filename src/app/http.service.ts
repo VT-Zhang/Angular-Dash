@@ -7,7 +7,7 @@ export class HttpService {
 
   constructor(private http: Http) {}
   
-  private url = 'http://161.253.178.165:8080/api/posts';
+  private url = "http://127.0.0.1:8000/api/zohocrm";
 
   getData() {
     return this.http
