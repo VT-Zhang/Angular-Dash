@@ -20,7 +20,8 @@ export class ClientNewComponent implements OnInit {
       address: "",
       city: "",
       state: "",
-      zip: ""
+      zip: "",
+      country: ""
     };
 
   constructor(private httpService: HttpService,
