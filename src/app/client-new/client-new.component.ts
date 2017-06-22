@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
-import { Http } from '@angular/http';
-
 
 @Component({
   selector: 'app-client-new',
@@ -9,9 +7,7 @@ import { Http } from '@angular/http';
   styleUrls: ['./client-new.component.css']
 })
 export class ClientNewComponent implements OnInit {
-  public data: any;
-  public zoho_id: string;
-  public url : string = "http://127.0.0.1:8000/api/zohocrm/";
+  public data: object;
   public zoho: object =
     {
       name: "",
@@ -23,8 +19,7 @@ export class ClientNewComponent implements OnInit {
       zip: "",
     };
 
-  constructor(private httpService: HttpService,
-              private http: Http) { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit() {
     this.httpService
@@ -32,19 +27,9 @@ export class ClientNewComponent implements OnInit {
     .subscribe(data => this.data = data)
   }
 
-  // importData(){
-  //   console.log(this.url+this.zoho_id);
-  //   this.http
-  //   .get(this.url+this.zoho_id)
-  //   .map(res => res.json())
-  //   .subscribe(zoho => this.zoho = zoho)
-  // }
-
   onChange(id){
-    this.zoho_id = id;
-    this.http
-    .get(this.url+this.zoho_id)
-    .map(res => res.json())
+    this.httpService
+    .getZohoAccount(id)
     .subscribe(zoho => this.zoho = zoho)
   }
 
