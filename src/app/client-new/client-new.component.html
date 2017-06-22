@@ -16,6 +16,20 @@
                     Add New Client
                 </header>
                 <div class="panel-body">
+                  
+                    <form (submit)="importData()">
+                        <div class="form-group">
+                            <label for="zoho_id"></label>
+                            <select [(ngModel)]="zoho_id" name="zoho_id" class="form-control selectpicker" data-size="15" data-live-search="true">
+                                <option value="" selected disabled>Select</option>
+                                <option *ngFor="let client of data" [ngValue]="client.zoho_id">{{client.name}}</option>
+                            </select>
+                        </div>
+                        <input type="submit" value="Import Data">
+                        <p>ZohoID: {{zoho_id}}</p>
+                        {{ zoho | json }}
+                    </form>
+
                     <form action="/client/create" method="POST" class="form-validate" role="form">
 
                         <!-- First Column -->
@@ -24,13 +38,13 @@
                                 <div class="row" style="text-align: center;">
                                     <h3>Basic Information</h3>
                                 </div>
-                                <div class="form-group">
-                                    <label for="client_type">Import Data from Zoho CRM<span class="required">*</span></label>
-                                    <select name="client_type" class="form-control selectpicker" data-live-search="true" required>
-                                        <option value="" selected disabled>Select</option>
-                                        <option *ngFor="let client of data" value={{client.zoho_id}}>{{client.name}}</option>
-                                    </select>
-                                </div>
+
+
+
+                                
+
+
+
                                 <div class="form-group">
                                     <label for="client_type">Client Type<span class="required">*</span></label>
                                     <select name="client_type" class="form-control selectpicker" data-live-search="true" required>
@@ -43,7 +57,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Name<span class="required">*</span></label>
-                                    <input type="text" class="form-control" name="name" placeholder="Name" required>
+                                    <input type="text" class="form-control" [(ngModel)]="zoho.name" [value]="" name="name" placeholder="Name" required>
                                 </div>
                             </div>
                         </div>
@@ -56,15 +70,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone<span class="required">*</span></label>
-                                    <input type="text" class="form-control" name="phone" placeholder="Phone" required>
+                                    <input type="text" class="form-control" [(ngModel)]="zoho.phone" [value]="" name="phone"  placeholder="Phone" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="fax">Fax</label>
-                                    <input type="text" class="form-control" name="fax" placeholder="Fax">
+                                    <input type="text" class="form-control" [(ngModel)]="zoho.fax" [value]="" name="fax" placeholder="Fax">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email<span class="required">*</span></label>
-                                    <input type="text" class="form-control" name="email" placeholder="Email" required>
+                                    <input type="text" class="form-control" [(ngModel)]="zoho.email" [value]="" name="email" placeholder="Email" required>
                                 </div>
                             </div>
                         </div>
@@ -76,17 +90,18 @@
                                     <h3>Address</h3>
                                 </div>
                                 <div class="form-group">
-                                    <label for="street">Street<span class="required">*</span></label>
-                                    <input type="text" class="form-control" name="street" placeholder="Street" required>
+                                    <label for="street">Address<span class="required">*</span></label>
+                                    <input type="text" class="form-control" [(ngModel)]="zoho.address" [value]="" name="address" placeholder="Address" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="name">City<span class="required">*</span></label>
-                                    <input type="text" class="form-control" name="city" placeholder="City" required>
+                                    <input type="text" class="form-control" [(ngModel)]="zoho.city" [value]="" name="city" placeholder="City" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="state">State<span class="required">*</span></label>
-                                    <select name="state" data-size="15" class="form-control selectpicker" data-live-search="true" required>
-                                        <option value="" selected disabled>Select</option>
+                                    <select [(ngModel)]="zoho.state" name="state" data-size="15" class="form-control selectpicker" data-live-search="true" required>
+                                        <!--<option [value]="" selected disabled>Select</option>-->
+                                        <option [value]="" selected></option>
                                         <option value="NA">Other</option>
                                         <option value="AL">Alabama</option>
                                         <option value="AK">Alaska</option>
@@ -148,7 +163,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="zipcode">Zipcode<span class="required">*</span></label>
-                                    <input type="text" class="form-control" name="zipcode" placeholder="Zipcode" required>
+                                    <input type="text" class="form-control" [(ngModel)]="zoho.zip" [value]="" name="zip" placeholder="Zipcode" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="country">Country<span class="required">*</span></label>

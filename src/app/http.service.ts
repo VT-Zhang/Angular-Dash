@@ -7,11 +7,11 @@ export class HttpService {
 
   constructor(private http: Http) {}
   
-  private url = "http://127.0.0.1:8000/api/zohocrm";
+  private url1 = "http://127.0.0.1:8000/api/zohocrm";
 
   getZohoID() {
     return this.http
-    .get(this.url)
+    .get(this.url1)
     .map(res => res.json());
   }
 }
