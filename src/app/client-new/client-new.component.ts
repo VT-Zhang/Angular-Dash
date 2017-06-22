@@ -21,7 +21,6 @@ export class ClientNewComponent implements OnInit {
       city: "",
       state: "",
       zip: "",
-      country: ""
     };
 
   constructor(private httpService: HttpService,
@@ -33,8 +32,16 @@ export class ClientNewComponent implements OnInit {
     .subscribe(data => this.data = data)
   }
 
-  importData(){
-    console.log(this.url+this.zoho_id);
+  // importData(){
+  //   console.log(this.url+this.zoho_id);
+  //   this.http
+  //   .get(this.url+this.zoho_id)
+  //   .map(res => res.json())
+  //   .subscribe(zoho => this.zoho = zoho)
+  // }
+
+  onChange(id){
+    this.zoho_id = id;
     this.http
     .get(this.url+this.zoho_id)
     .map(res => res.json())
